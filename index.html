@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You 💕</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+</head>
+<body>
+    <div id="floating-hearts" class="floating-container"></div>
+    <div id="floating-words" class="floating-container"></div>
+    <div id="falling-giraffes" class="floating-container"></div>
+
+    <!-- Music Player -->
+    <button id="music-toggle" class="music-button">🎵</button>
+    <audio id="background-music" loop>
+        <source src="audio/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Main Container -->
+    <div id="main-container">
+
+
+        <section id="section-opening" class="section active">
+            <div class="center-content">
+                <h1 class="main-title">ALLO KANAYAAAA</h1>
+                <p class="subtitle">There's something I want to show you...</p>
+                <button class="btn btn-primary" onclick="startExperience()">Open 💝</button>
+            </div>
+        </section>
+        
+        <section id="section-game" class="section">
+            <div class="center-content">
+                <h2 class="section-title">Catch My Hearts 💕</h2>
+                <div class="score-display">
+                    <span id="score">0</span> / 10
+                </div>
+                <div id="game-area" class="game-area"></div>
+                <p id="game-complete-msg" class="complete-msg hidden">
+                    KEREN !!AYO KITA LANJUTKAN KE LEVEL SELANJUTNYA...
+                </p>
+            </div>
+        </section>
+
+
+        <section id="section-puzzle" class="section">
+            <div class="center-content">
+                <h2 class="section-title">Susun kata ini dengan benar 💖</h2>
+                <div id="puzzle-letters" class="puzzle-letters"></div>
+                <div id="selected-letters" class="selected-letters"></div>
+                <p id="puzzle-complete-msg" class="complete-msg hidden">
+                    KAMU  KEREEEN
+                </p>
+                <p class="hint-text">Susun huruf-huruf ini menjadi kata yang benar!</p>
+            </div>
+        </section>
+
+
+        <section id="section-album" class="section">
+            <div class="center-content">
+                <h2 class="section-title">Kanayaaa album 📸</h2>
+                <div class="polaroid">
+                    <div class="polaroid-photo" id="polaroid-photo">
+                        <img id="photo-image" src="" alt="Album photo">
+                    </div>
+                    <div class="polaroid-info">
+                        <p class="photo-date" id="photo-date">January 2024</p>
+                        <p class="photo-caption" id="photo-caption">The day we first met</p>
+                    </div>
+                </div>
+                <div class="photo-counter" id="photo-counter">1 / 5</div>
+                <button class="btn btn-primary" onclick="nextPhoto()">
+                    <span id="album-btn-text">Next 💕</span>
+                </button>
+            </div>
+        </section>
+
+        <section id="section-chat" class="section">
+            <div class="chat-container" id="chat-container"></div>
+        </section>
+
+
+        <section id="section-choice" class="section">
+            <div class="center-content">
+                <h2 class="section-title">Do u want to know my secret? 💭</h2>
+                <p id="choice-hint" class="complete-msg hidden">
+                    Tinggal klik yes  apa susahnya sih
+                </p>
+                <div class="choice-buttons">
+                    <button class="btn btn-primary" onclick="nextSection()">Yes! 💖</button>
+                    <button id="no-button" class="btn btn-secondary">No</button>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="section-confession" class="section">
+            <div id="confetti-container"></div>
+            <div class="center-content confession-content">
+                <h1 class="confession-title">I Love You 💕</h1>
+                <div class="confession-box">
+                    <p class="confession-text">
+                        Pas pertama  kali kita  kenalan, aku  ngerasa ada yang berbeda dari kamu
+                    </p>
+                    <p class="confession-text">
+                        kamu aneh  tapi lucu, dan aku suka banget sama keanehanmu itu
+                    </p>
+                    <p class="confession-text">
+                        kamu bikin  aku ketawa, kamu bikin hari aku lebih cerah, dan kamu bikin aku ngerasa nyaman banget  woi💞❣
+                    </p>
+                    <p class="confession-text confession-question">
+                        MAKASIH UDAH JADI KANAYA YANG AKU KENAL❤️🔥
+                    </p>
+                </div>
+                <button class="btn btn-primary" onclick="restart()">Experience Again ↺</button>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+       if ("serviceWorker" in navigator) {
+         window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/service-worker.js")
+      .then(() => {
+        console.log("PWA aktif");
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  });
+}
+</script>
+</body>
+</html>
